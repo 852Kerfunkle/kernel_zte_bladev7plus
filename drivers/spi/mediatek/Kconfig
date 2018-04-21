@@ -1,0 +1,15 @@
+#SPI
+config MTK_SPI
+	tristate "MediaTek SPI controller"
+	#depends on SPI
+	default n
+	---help---
+	This selects the MediaTek(R) SPI bus driver.
+	If you want to use MediaTek(R) SPI interface, say Y or M here.  If unsure, say N.
+
+config FINGERPRINT_GF3208
+	bool "gf3208"
+	depends on INPUT
+	help
+	Select this option to support goodix fingerprint chip gf311x
+	chip int.  
