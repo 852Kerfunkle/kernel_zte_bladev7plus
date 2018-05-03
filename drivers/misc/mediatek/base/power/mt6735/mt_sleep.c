@@ -128,7 +128,7 @@ static int slp_suspend_ops_begin(suspend_state_t state)
 {
     /* legacy log */
 
-		/*slp_notice("@@@Chip_pm_begin(%u)(%u)@@@\n", is_cpu_pdn(slp_spm_flags), is_infra_pdn(slp_spm_flags));*/
+		slp_notice("@@@Chip_pm_begin(%u)(%u)@@@\n", is_cpu_pdn(slp_spm_flags), is_infra_pdn(slp_spm_flags));
 
 
 		slp_wake_reason = WR_NONE;
@@ -140,7 +140,7 @@ static int slp_suspend_ops_prepare(void)
 {
     /* legacy log */
 
-		/*slp_crit2("@@@Chip_pm_prepare@@@\n");*/
+		slp_crit2("@@@Chip_pm_prepare@@@\n");
 
 		return 0;
 }
@@ -173,7 +173,7 @@ static int enter_pasrdpd(void)
 	int error = 0;
 	u32 sr = 0, dpd = 0;
 
-	/*slp_crit2("@@@[%s]@@@\n", __func__);*/
+	slp_crit2("@@@[%s]@@@\n", __func__);
 
 	/* Setup SPM wakeup event firstly */
 	spm_set_wakeup_src_check();
@@ -201,7 +201,7 @@ static int enter_pasrdpd(void)
 static void leave_pasrdpd(void)
 {
 
-	/*slp_crit2("@@@[%s]@@@\n", __func__);*/
+	slp_crit2("@@@[%s]@@@\n", __func__);
 
 
 	/* Disable PASR */
@@ -234,13 +234,11 @@ static int slp_suspend_ops_enter(suspend_state_t state)
 
     /* legacy log */
 
-		/*slp_crit2("@@@Chip_pm_enter@@@\n");*/
+		slp_crit2("@@@Chip_pm_enter@@@\n");
 
 
-// add by guohaijing start
-//#if 0
-#if 1
-// add by guohaijing end
+
+#if 0
 		if (slp_dump_gpio)
 			gpio_dump_regs();
 #endif
@@ -288,7 +286,7 @@ static void slp_suspend_ops_finish(void)
 {
     /* legacy log */
 
-		/*slp_crit2("@@@Chip_pm_finish@@@\n");*/
+		slp_crit2("@@@Chip_pm_finish@@@\n");
 
 }
 
@@ -296,7 +294,7 @@ static void slp_suspend_ops_end(void)
 {
     /* legacy log */
 
-		/*slp_notice("@@@Chip_pm_end@@@\n");*/
+		slp_notice("@@@Chip_pm_end@@@\n");
 
 }
 
